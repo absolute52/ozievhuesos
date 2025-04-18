@@ -5,66 +5,57 @@
     <title>Кнопки со звуками</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             text-align: center;
             margin-top: 50px;
-            background-color: #f0f0f0;
+            font-family: Arial;
         }
         h1 {
             color: red;
-            margin-bottom: 30px;
         }
         button {
-            padding: 10px 20px;
+            padding: 10px 25px;
+            margin: 10px;
             font-size: 16px;
-            margin: 5px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
         }
         #no {
-            background-color: #ff6b6b;
+            background: #ff6b6b;
             color: white;
         }
-        #yes {
-            background-color: #4CAF50;
-            color: white;
-        }
-        #sure {
-            background-color: #2196F3;
+        #yes, #sure {
+            background: #4CAF50;
             color: white;
         }
     </style>
 </head>
 <body>
-    <h1>Озиевхуесос?</h1>
+    <h1>Озиев хуесос?</h1>
     
-    <div>
-        <button id="no">Нет</button>
-        <button id="yes">Да</button>
-        <button id="sure">Конечно</button>
-    </div>
+    <button id="no">Нет</button>
+    <button id="yes">Да</button>
+    <button id="sure">Конечно</button>
 
     <script>
-        // Звуковые файлы из папки
+        // Создаем аудио элементы
         const soundNo = new Audio('no.mp3');
         const soundYes = new Audio('yes.mp3');
-
-        // Назначаем обработчики кнопок
-        document.getElementById('no').addEventListener('click', function() {
+        
+        // Вешаем обработчики на кнопки
+        document.getElementById('no').onclick = () => {
             soundNo.currentTime = 0;
             soundNo.play();
-        });
-
-        document.getElementById('yes').addEventListener('click', function() {
+        };
+        
+        document.getElementById('yes').onclick = () => {
             soundYes.currentTime = 0;
             soundYes.play();
-        });
-
-        document.getElementById('sure').addEventListener('click', function() {
+        };
+        
+        document.getElementById('sure').onclick = () => {
             soundYes.currentTime = 0;
             soundYes.play();
-        });
+        };
     </script>
 </body>
 </html>
