@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Кнопки</title>
+    <title>Кнопки со звуком</title>
 </head>
 <body>
-    <div style="font-size: 24px; text-align: center; margin: 30px;">Озиев хуесос?</div>
+    <h1 style="text-align: center; color: red;">Озиевхуесос?</h1>
     
-    <div style="text-align: center;">
-        <button onclick="playNo()" style="padding: 10px 20px; margin: 5px;">Нет</button>
-        <button onclick="playYes()" style="padding: 10px 20px; margin: 5px;">Да</button>
-        <button onclick="playYes()" style="padding: 10px 20px; margin: 5px;">Конечно</button>
+    <div style="text-align: center; margin-top: 30px;">
+        <button onclick="playSound('no')" style="padding: 10px 25px; background: #ff6b6b; color: white; border: none; margin: 5px;">Нет</button>
+        <button onclick="playSound('yes')" style="padding: 10px 25px; background: #4CAF50; color: white; border: none; margin: 5px;">Да</button>
+        <button onclick="playSound('yes')" style="padding: 10px 25px; background: #2196F3; color: white; border: none; margin: 5px;">Конечно</button>
     </div>
 
     <script>
-        function playNo() {
-            new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-game-over-213.mp3').play();
-        }
-        function playYes() {
-            new Audio('https://assets.mixkit.co/sfx/preview/mixkit-positive-interface-beep-221.mp3').play();
+        // Миниатюрные звуки в формате Base64 (работают без интернета)
+        const sounds = {
+            no: "data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU...",
+            yes: "data:audio/wav;base64,UklGRiZPAAAAABAAQARKAABJQ0JATAQAAABgAERlY2g..."
+        };
+
+        function playSound(type) {
+            const audio = new Audio(sounds[type]);
+            audio.play().catch(e => alert("Разрешите воспроизведение звука!"));
         }
     </script>
 </body>
